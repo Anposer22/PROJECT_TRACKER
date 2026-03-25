@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "meta": {
+    "documentTitle": "Project Tracker",
+    "updatedAt": "2026-03-25T12:00:00.000Z"
+  },
+  "customers": [
+    {
+      "id": "cust_demo",
+      "name": "Acme Corp",
+      "order": 0,
+      "projects": [
+        {
+          "id": "proj_demo",
+          "name": "Rollout 2026",
+          "order": 0,
+          "groups": [
+            {
+              "id": "grp_1",
+              "name": "Group 1",
+              "color": "#2D6C86",
+              "order": 0,
+              "subGroups": [
+                { "id": "grp_1_1", "name": "Group 1.1", "order": 0 },
+                { "id": "grp_1_2", "name": "Group 1.2", "order": 1 },
+                { "id": "grp_1_3", "name": "Group 1.3", "order": 2 }
+              ]
+            },
+            {
+              "id": "grp_2",
+              "name": "Group 2",
+              "color": "#EA580C",
+              "order": 1,
+              "subGroups": [
+                { "id": "grp_2_1", "name": "Group 2.1", "order": 0 },
+                { "id": "grp_2_2", "name": "Group 2.2", "order": 1 }
+              ]
+            },
+            {
+              "id": "grp_3",
+              "name": "Group 3",
+              "color": "#16A34A",
+              "order": 2,
+              "subGroups": [
+                { "id": "grp_3_1", "name": "Group 3.1", "order": 0 }
+              ]
+            }
+          ],
+          "tasks": [
+            {
+              "id": "task_1",
+              "title": "Task 1 — Kickoff",
+              "summary": "Initial scope in Group 1.1, then handed to 1.2.",
+              "events": [
+                { "id": "evt_t1a", "type": "created", "date": "2026-03-10", "toLaneId": "grp_1_1" },
+                {
+                  "id": "evt_t1b",
+                  "type": "handoff",
+                  "date": "2026-03-14",
+                  "fromLaneId": "grp_1_1",
+                  "toLaneId": "grp_1_2",
+                  "note": "Handoff to implementation"
+                }
+              ]
+            },
+            {
+              "id": "task_2",
+              "title": "Task 2 — Cross-team",
+              "summary": "Flow from Group 1.1 to Group 2.1 to Group 1.3.",
+              "events": [
+                { "id": "evt_t2a", "type": "created", "date": "2026-03-12", "toLaneId": "grp_1_1" },
+                {
+                  "id": "evt_t2b",
+                  "type": "handoff",
+                  "date": "2026-03-16",
+                  "fromLaneId": "grp_1_1",
+                  "toLaneId": "grp_2_1"
+                },
+                {
+                  "id": "evt_t2c",
+                  "type": "handoff",
+                  "date": "2026-03-18",
+                  "fromLaneId": "grp_2_1",
+                  "toLaneId": "grp_1_3"
+                },
+                {
+                  "id": "evt_t2d",
+                  "type": "status-note",
+                  "date": "2026-03-19",
+                  "note": "Waiting on review"
+                }
+              ]
+            },
+            {
+              "id": "task_3",
+              "title": "Task 3 — Ongoing",
+              "summary": "Open task; timeline extends to today with a lighter tail.",
+              "events": [
+                { "id": "evt_t3a", "type": "created", "date": "2026-03-05", "toLaneId": "grp_3_1" }
+              ]
+            },
+            {
+              "id": "task_4",
+              "title": "Task 4 — Closed",
+              "summary": "Completed work in Group 1.2.",
+              "events": [
+                { "id": "evt_t4a", "type": "created", "date": "2026-03-01", "toLaneId": "grp_1_2" },
+                { "id": "evt_t4b", "type": "closed", "date": "2026-03-08" }
+              ]
+            },
+            {
+              "id": "task_5",
+              "title": "Task 5 — Re-opened",
+              "summary": "Was closed, then reopened for a follow-up.",
+              "events": [
+                { "id": "evt_t5a", "type": "created", "date": "2026-02-20", "toLaneId": "grp_2_1" },
+                { "id": "evt_t5b", "type": "closed", "date": "2026-02-28" },
+                { "id": "evt_t5c", "type": "reopened", "date": "2026-03-11" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
